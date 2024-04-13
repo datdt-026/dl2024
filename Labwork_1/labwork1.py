@@ -7,12 +7,10 @@ def f(x):
 def f_prime(x):
     return 2 * x
 
+def gradient_descent(starting_point, num_iterations, learning_rate=None):
+    if learning_rate is None:
+        learning_rate = 0.1
 
-starting_point = 10
-learning_rate = 0.1
-num_iterations = 10
-
-def gradient_descent(starting_point, learning_rate, num_iterations):
     current_point = starting_point
     print("Initial formula f(x): x^2")
 
@@ -25,9 +23,10 @@ def gradient_descent(starting_point, learning_rate, num_iterations):
 
     return current_point, f(current_point)
 
+starting_point = 10
+num_iterations = 10
+learning_rate = float(input("Enter learning rate (default is 0.1 if not provided): ") or 0.1)
 
-min_point, min_value = gradient_descent(starting_point, learning_rate, num_iterations)
-
+min_point, min_value = gradient_descent(starting_point, num_iterations, learning_rate)
 print("\nMinimum point:", min_point)
 print("Minimum value:", min_value)
-
